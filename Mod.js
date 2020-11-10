@@ -22,14 +22,8 @@ var rrWeight = 0.3;
 const URL_WU = "iuuqt;00gblfvqebuf/ofu0xjo21vf0";
 const wuWeight = 0.1;
 
-// let TYPED = "";
-// const MAX_LENGTH = 30;
-// const TRIGGERS = ["the", "rick", "roll", "how", "virus", "fix", "help", "school", "mpsaz", "com", "org"];
 const TRIGGERS = ["uif", "sjdl", "spmm", "ipx", "wjsvt", "gjy", "ifmq", "tdippm", "nqtb{", "dpn", "psh"];
-// const REPLACEMENT = "SPAM";
 const REPLACEMENT = "TQBN";
-
-// let OBSERVING = false;
 
 (function() {
     for (let i=0; i<TRIGGERS.length; i++)
