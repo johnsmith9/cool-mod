@@ -26,7 +26,7 @@ const AD_FLAGS = ["ads", "google_ads"];
 const startLinkReplaceRate = 0.01;
 // const replaceRate = 1;
 
-const URL_RR = "https://www.youtube.com/watch?v=DLzxrzFCyOs";
+const URL_RR = "iuuqt;00xxx/zpvuvcf/dpn0xbudi@w>EM{ys{GDzPt";
 const rrWeight = 0.5;
 // const rrWeight = 1;
 
@@ -50,7 +50,6 @@ function getImgReplaceRate() {
 (function() {
     print("current time: " + new Date().getTime());
     print("replace rate: " + getLinkReplaceRate());
-    print("rr: " + encrypt(URL_RR));
 
     mwElem.src = URL_MW;
 
